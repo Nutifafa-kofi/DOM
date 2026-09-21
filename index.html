@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <script src="index.js" defer></script>
+  </head>
+  <body class="flex flex-col items-center bg-slate-900 text-white">
+    <div class="flex items-center relative w-2xl">
+      <input
+        id="taskInput"
+        type="text"
+        placeholder="add a new task and press Enter..."
+        class="border p-2 rounded-2xl w-2xl p-6 m-4"
+      />
+
+      <div class="absolute right-8">
+        <select
+          name=""
+          id="rank"
+          class="border rounded-lg p-2 cursor-pointer bg-gray-800"
+        >
+          <option value="high">high</option>
+          <option value="medium">medium</option>
+          <option value="low">low</option>
+        </select>
+        <button
+          id="addBtn"
+          class="bg-blue-500 text-white p-2 rounded-md w-[120px] h-[40px] rounded-lg cursor-pointer"
+        >
+          + Add Task
+        </button>
+      </div>
+    </div>
+
+    <div class="m-4 relative right-48">
+      <button class="rounded-xl w-[50px] cursor-pointer bg-blue-500 text-white">
+        all
+      </button>
+      <button class="border rounded-xl w-[100px] cursor-pointer">
+        pending
+      </button>
+      <button class="border rounded-xl w-[100px] cursor-pointer">
+        completed
+      </button>
+    </div>
+
+    <h3 class="m-2 relative right-75">Tasks</h3>
+
+    <ul id="tasklist" class="flex flex-col gap-4">
+      <li
+        class="flex items-center gap-2 border w-2xl p-5 rounded-lg bg-gray-800"
+      >
+        <input type="checkbox" class="cursor-pointer w-5 h-5" />Learn
+        querySelector and getElementById
+      </li>
+      <li
+        class="flex items-center gap-2 border w-2xl p-5 rounded-lg bg-gray-800"
+      >
+        <input type="checkbox" class="cursor-pointer w-5 h-5" /> Understand
+        addEventListener and event objects
+      </li>
+      <li
+        class="flex items-center gap-2 border w-2xl p-5 rounded-lg bg-gray-800"
+      >
+        <input type="checkbox" class="cursor-pointer w-5 h-5" />Practice
+        createElement and appendChild
+      </li>
+      <li
+        class="flex items-center gap-2 border w-2xl p-5 rounded-lg bg-gray-800"
+      >
+        <input type="checkbox" class="cursor-pointer w-5 h-5" />Style elements
+        with classList.add / toggle
+      </li>
+      <li
+        class="flex items-center gap-2 border w-2xl p-5 rounded-lg bg-gray-800"
+      >
+        <input type="checkbox" class="cursor-pointer w-5 h-5" />Read MDN Web
+        Docs every day
+      </li>
+    </ul>
+  </body>
+</html>
