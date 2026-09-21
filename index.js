@@ -5,7 +5,10 @@ const tasklist = document.getElementById("tasklist");
 addBtn.addEventListener("click", function () {
     const task = taskInput.value.trim();
     if (task === "") {
-        alert("Please enter a task.");
+        taskInput.classList.add("shake");
+        setTimeout(() => {
+            taskInput.classList.remove("shake");
+        }, 300);
         return;
     }
 
