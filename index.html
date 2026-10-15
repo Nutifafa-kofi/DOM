@@ -20,7 +20,10 @@
     <script src="index.js" defer></script>
     <title>Document</title>
   </head>
-  <body class="flex flex-col items-center bg-gray-950 text-white font-['Poppins'] text-sm">
+  <body
+    class="flex flex-col items-center bg-gray-950 text-white font-['Poppins'] text-sm"
+  >
+    <!-- Task Input Section -->
     <div class="flex items-center relative w-2xl">
       <input
         id="taskInput"
@@ -28,6 +31,8 @@
         placeholder="add a new task and press Enter..."
         class="border rounded-2xl w-2xl p-5 m-4 bg-gray-900 border-[0.5px]"
       />
+
+      <!-- Task Rank and Add Button Start -->
 
       <div class="absolute right-8 display flex items-center gap-4">
         <select
@@ -47,7 +52,9 @@
         </button>
       </div>
     </div>
+    <!-- Task Input Section End -->
 
+    <!-- Task Filters Start -->
     <div class="m-4 relative right-48">
       <button class="rounded-xl w-[50px] cursor-pointer bg-blue-500 text-white">
         all
@@ -59,9 +66,11 @@
         completed
       </button>
     </div>
+    <!-- Task Filters End -->
 
     <h3 class="m-4 relative right-75 text-gray-700 text-sm">TASKS</h3>
 
+    <!-- Task List Start-->
     <ul id="tasklist" class="flex flex-col gap-4">
       <li
         class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900"
@@ -94,5 +103,7 @@
         Docs every day
       </li>
     </ul>
+
+    <!-- Task List End -->
   </body>
 </html>
