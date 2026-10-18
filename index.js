@@ -2,12 +2,6 @@
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const tasklist = document.getElementById("tasklist");
-const existingBtn = document.querySelectorAll("#existingBtn");
-existingBtn.forEach((btn) => {
-  btn.textContent = "×";
-  btn.className =
-    " text-gray-500  rounded-md ml-auto text-2xl hover:bg-transparent hover:text-red-300 cursor-pointer hover:border border-red-300 w-6 h-6 flex items-center justify-center";
-});
 
 // Event listener for the add button
 addBtn.addEventListener("click", function () {
@@ -52,7 +46,5 @@ addBtn.addEventListener("click", function () {
   });
 
   listItem.appendChild(deleteBtn);
-  tasklist.appendChild(listItem);
+  
 });
-
-listItem.appendChild(existingBtn);
