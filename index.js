@@ -46,5 +46,13 @@ addBtn.addEventListener("click", function () {
   });
 
   listItem.appendChild(deleteBtn);
-  
+});
+
+const existingList = document.querySelectorAll("#tasklist li");
+const existingBtn = document.querySelectorAll("#existingBtn");
+
+existingBtn.forEach((element) => {
+  element.addEventListener("click", function () {
+    element.parentElement.remove();
+  });
 });
