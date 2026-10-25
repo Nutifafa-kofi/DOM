@@ -74,6 +74,7 @@ taskInput.addEventListener("keydown", function (event) {
   }
 });
 
+// Event listener for the task lists to handle existing delete button clicks
 const existingList = document.querySelectorAll("#tasklist li");
 const existingBtn = document.querySelectorAll(".existingBtn");
 
@@ -83,6 +84,7 @@ existingBtn.forEach((element) => {
   });
 });
 
+// Mark the task as completed when the checkbox is checked
 const checkboxes = document.querySelectorAll(".existingCheckbox");
 
 checkboxes.forEach((checkbox) => {
@@ -92,9 +94,17 @@ checkboxes.forEach((checkbox) => {
   });
 });
 
+// Event listener for filter buttons to handle pending, completed, and all tasks
 filterButtons.forEach((button) => {
   button.addEventListener("click", function () {
     const filter = button.dataset.filter;
+    filterButtons.forEach((filterButton) => {
+      filterButton.classList.remove("bg-blue-500", "text-white");
+      filterButton.classList.add("border");
+    });
+
+    button.classList.add("bg-blue-500", "text-white");
+    button.classList.remove("border");
     const tasks = tasklist.querySelectorAll("li");
 
     tasks.forEach((taskItem) => {
