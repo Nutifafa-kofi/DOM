@@ -3,6 +3,7 @@ const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const tasklist = document.getElementById("tasklist");
 const rankSelect = document.getElementById("rank");
+const filterButtons = document.querySelectorAll("[data-filter]");
 
 // Add a task when the button is clicked or Enter is pressed
 function addTask() {
@@ -29,7 +30,7 @@ function addTask() {
   const taskText = document.createElement("span");
   const priorityLabel = document.createElement("span");
   priorityLabel.textContent = priority;
-  priorityLabel.className = "ml-auto text-xs rounded-md border px-4 py-1";
+  priorityLabel.className = "ml-auto  text-xs rounded-md border px-4 py-1";
 
   if (priority === "high") {
     priorityLabel.classList.add("text-red-400");
@@ -52,7 +53,7 @@ function addTask() {
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "x";
   deleteBtn.className =
-    " text-gray-500  rounded-md ml-auto text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center";
+    " text-gray-500  rounded-md  text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center";
 
   deleteBtn.addEventListener("click", function () {
     listItem.remove();
@@ -88,5 +89,21 @@ checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", function () {
     const taskText = checkbox.nextElementSibling;
     taskText.classList.toggle("line-through");
+  });
+});
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const filter = button.dataset.filter;
+    const tasks = tasklist.querySelectorAll("li");
+
+    tasks.forEach((taskItem) => {
+      const checkbox = taskItem.querySelector('input[type="checkbox"]');
+      const isCompleted = checkbox.checked;
+
+      taskItem.hidden =
+        (filter === "pending" && isCompleted) ||
+        (filter === "completed" && !isCompleted);
+    });
   });
 });

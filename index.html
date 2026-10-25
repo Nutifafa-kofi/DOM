@@ -56,13 +56,13 @@
 
     <!-- Task Filters Start -->
     <div class="m-4 relative right-48">
-      <button class="rounded-xl w-[50px] cursor-pointer bg-blue-500 text-white">
+      <button data-filter="all" class="rounded-xl w-[50px] cursor-pointer bg-blue-500 text-white">
         all
       </button>
-      <button class="border rounded-xl w-[100px] cursor-pointer">
+      <button data-filter="pending" class="border rounded-xl w-[100px] cursor-pointer">
         pending
       </button>
-      <button class="border rounded-xl w-[100px] cursor-pointer">
+      <button data-filter="completed" class="border rounded-xl w-[100px] cursor-pointer">
         completed
       </button>
     </div>
@@ -80,8 +80,11 @@
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
         />
         <span>Learn querySelector and getElementById</span>
+        <span class="ml-auto text-red-400 text-xs rounded-md border px-3 py-1"
+          >high</span
+        >
         <button
-          class="existingBtn text-gray-500 rounded-md ml-auto text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
+          class="existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
         >
           x
         </button>
@@ -95,8 +98,11 @@
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
         />
         <span>Understand addEventListener and event objects</span>
+        <span class="ml-auto text-red-400 text-xs rounded-md border px-3 py-1"
+          >high</span
+        >
         <button
-          class="existingBtn text-gray-500 rounded-md ml-auto text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
+          class="existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
         >
           x
         </button>
@@ -110,8 +116,12 @@
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
         />
         <span>Practice createElement and appendChild</span>
+        <span
+          class="ml-auto text-yellow-400 text-xs rounded-md border px-3 py-1"
+          >medium</span
+        >
         <button
-          class="existingBtn text-gray-500 rounded-md ml-auto text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
+          class="existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
         >
           x
         </button>
@@ -125,8 +135,12 @@
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
         />
         <span>Style elements with classList.add / toggle</span>
+        <span
+          class="ml-auto text-yellow-400 text-xs rounded-md border px-3 py-1"
+          >medium</span
+        >
         <button
-          class="existingBtn text-gray-500 rounded-md ml-auto text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
+          class="existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
         >
           x
         </button>
@@ -140,8 +154,11 @@
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
         />
         <span>Read MDN Web Docs every day</span>
+        <span class="ml-auto text-green-400 text-xs rounded-md border px-3 py-1"
+          >low</span
+        >
         <button
-          class="existingBtn text-gray-500 rounded-md ml-auto text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
+          class="existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
         >
           x
         </button>
