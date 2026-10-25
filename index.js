@@ -56,3 +56,12 @@ existingBtn.forEach((element) => {
     element.parentElement.remove();
   });
 });
+
+const checkboxes = document.querySelectorAll("#existingCheckbox");
+
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", function () {
+    const taskText = checkbox.nextElementSibling;
+    taskText.classList.toggle("line-through");
+  });
+});
