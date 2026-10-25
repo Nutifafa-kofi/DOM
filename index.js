@@ -2,10 +2,12 @@
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const tasklist = document.getElementById("tasklist");
+const rankSelect = document.getElementById("rank");
 
-// Event listener for the add button
-addBtn.addEventListener("click", function () {
+// Add a task when the button is clicked or Enter is pressed
+function addTask() {
   const task = taskInput.value.trim();
+  const priority = rankSelect.value;
   // Check if the task input is empty and shake the input field if it is
   if (task === "") {
     taskInput.classList.add("shake");
@@ -25,6 +27,17 @@ addBtn.addEventListener("click", function () {
 
   // Create the task text
   const taskText = document.createElement("span");
+  const priorityLabel = document.createElement("span");
+  priorityLabel.textContent = priority;
+  priorityLabel.className = "ml-auto text-xs rounded-md border px-4 py-1";
+
+  if (priority === "high") {
+    priorityLabel.classList.add("text-red-400");
+  } else if (priority === "medium") {
+    priorityLabel.classList.add("text-yellow-400");
+  } else {
+    priorityLabel.classList.add("text-green-400");
+  }
 
   // Mark the task as completed when the checkbox is checked
   checkbox.addEventListener("change", function () {
@@ -37,19 +50,31 @@ addBtn.addEventListener("click", function () {
 
   // Event listener for the task list to handle delete button clicks
   const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "×";
+  deleteBtn.textContent = "x";
   deleteBtn.className =
-    " text-gray-500  rounded-md ml-auto text-2xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center";
+    " text-gray-500  rounded-md ml-auto text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center";
 
   deleteBtn.addEventListener("click", function () {
     listItem.remove();
   });
+  listItem.appendChild(priorityLabel);
 
   listItem.appendChild(deleteBtn);
+
+  taskInput.value = "";
+  taskInput.focus();
+}
+
+addBtn.addEventListener("click", addTask);
+
+taskInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
 });
 
 const existingList = document.querySelectorAll("#tasklist li");
-const existingBtn = document.querySelectorAll("#existingBtn");
+const existingBtn = document.querySelectorAll(".existingBtn");
 
 existingBtn.forEach((element) => {
   element.addEventListener("click", function () {
@@ -57,7 +82,7 @@ existingBtn.forEach((element) => {
   });
 });
 
-const checkboxes = document.querySelectorAll("#existingCheckbox");
+const checkboxes = document.querySelectorAll(".existingCheckbox");
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", function () {
