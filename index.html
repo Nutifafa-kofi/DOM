@@ -26,7 +26,7 @@
     <!-- Task Input Section -->
     <div class="flex items-center relative w-2xl">
       <input
-        id="taskInput"
+        id="inputBox"
         type="text"
         placeholder="add a new task and press Enter..."
         class="border rounded-2xl w-2xl p-5 m-4 bg-gray-900 border-[0.5px]"
@@ -45,7 +45,7 @@
           <option value="low">low</option>
         </select>
         <button
-          id="addBtn"
+          onclick="addTask()"
           class="bg-blue-500 text-white p-2 rounded-md w-[120px] h-[40px] rounded-lg cursor-pointer"
         >
           + Add Task
@@ -96,13 +96,18 @@
     <!-- Task List Start-->
     <ul id="tasklist" class="flex flex-col gap-4">
       <li
-        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900"
+        class="flex items-center gap-6 border w-2xl p-4 rounded-xl bg-gray-900 relative"
       >
-        <input
+        <span class="absolute w-[20px] h-[20px] left-3"
+          ><img src="img/unchecked.png"
+        /></span>
+        <!-- <input
           type="checkbox"
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
-        />
-        <span>Learn querySelector and getElementById</span>
+        /> -->
+        <span class="relative left-8"
+          >Learn querySelector and getElementById</span
+        >
         <span class="ml-auto text-red-400 text-xs rounded-md border px-3 py-1"
           >high</span
         >
@@ -114,13 +119,18 @@
       </li>
 
       <li
-        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900"
+        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900 relative"
       >
-        <input
+        <span class="absolute w-[20px] h-[20px] left-3"
+          ><img src="img/unchecked.png"
+        /></span>
+        <!-- <input
           type="checkbox"
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
-        />
-        <span>Understand addEventListener and event objects</span>
+        /> -->
+        <span class="relative left-8"
+          >Understand addEventListener and event objects</span
+        >
         <span class="ml-auto text-red-400 text-xs rounded-md border px-3 py-1"
           >high</span
         >
@@ -132,13 +142,18 @@
       </li>
 
       <li
-        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900"
+        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900 relative"
       >
-        <input
+        <span class="absolute w-[20px] h-[20px] left-3"
+          ><img src="img/unchecked.png"
+        /></span>
+        <!-- <input
           type="checkbox"
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
-        />
-        <span>Practice createElement and appendChild</span>
+        /> -->
+        <span class="relative left-8"
+          >Practice createElement and appendChild</span
+        >
         <span
           class="ml-auto text-yellow-400 text-xs rounded-md border px-3 py-1"
           >medium</span
@@ -151,13 +166,18 @@
       </li>
 
       <li
-        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900"
+        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900 relative"
       >
-        <input
+        <span class="absolute w-[20px] h-[20px] left-3"
+          ><img src="img/unchecked.png"
+        /></span>
+        <!-- <input
           type="checkbox"
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
-        />
-        <span>Style elements with classList.add / toggle</span>
+        /> -->
+        <span class="relative left-8"
+          >Style elements with classList.add / toggle</span
+        >
         <span
           class="ml-auto text-yellow-400 text-xs rounded-md border px-3 py-1"
           >medium</span
@@ -170,13 +190,16 @@
       </li>
 
       <li
-        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900"
+        class="flex items-center gap-2 border w-2xl p-4 rounded-xl bg-gray-900 relative"
       >
-        <input
+        <span class="absolute w-[20px] h-[20px] left-3"
+          ><img src="img/unchecked.png"
+        /></span>
+        <!-- <input
           type="checkbox"
           class="existingCheckbox cursor-pointer w-3 h-3 rounded-full"
-        />
-        <span>Read MDN Web Docs every day</span>
+        /> -->
+        <span class="relative left-8">Read MDN Web Docs every day</span>
         <span class="ml-auto text-green-400 text-xs rounded-md border px-3 py-1"
           >low</span
         >
