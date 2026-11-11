@@ -9,11 +9,11 @@ function addTask() {
     return;
   }
 
-
   const listItem = document.createElement("li");
   listItem.className =
     "flex items-center gap-2 border w-2xl p-5 rounded-xl bg-gray-900";
-  listItem.innerHTML = inputBox.value;
+  listItem.textContent = inputBox.value;
   taskList.appendChild(listItem);
   inputBox.value = "";
 }
+
