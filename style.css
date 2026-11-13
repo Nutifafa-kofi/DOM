@@ -7,11 +7,15 @@
     transform: translateX(-5px);
   }
 
-  75% {
+  50% {
     transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
   }
 }
 
 .shake {
-  animation: shake 0.4s;
+  animation: shake 0.3s;
 }

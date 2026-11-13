@@ -9,7 +9,7 @@ function addTask() {
 
     setTimeout(() => {
       inputBox.classList.add("shake")
-    }, 400)
+    }, 500)
     return;
   }
 
