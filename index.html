@@ -21,7 +21,7 @@
     <title>Task Manager</title>
   </head>
   <body
-    class="flex flex-col items-center bg-[#0F1116] text-white font-['Poppins'] text-sm mt-[100px] h-screen"
+    class="flex flex-col items-center bg-[#0F1116] text-white font-['Poppins'] text-sm min-h-screen"
   >
     <!-- Task Input Section -->
     <div class="flex items-center relative w-3xl">
@@ -46,7 +46,7 @@
         </select>
         <button
           onclick="addTask()"
-          class="bg-blue-500 text-white p-2 rounded-md w-[120px] h-[40px] rounded-lg cursor-pointer"
+          class="bg-[#5B7CFA] text-white p-2 rounded-md w-[120px] h-[40px] rounded-lg cursor-pointer"
         >
           + Add Task
         </button>
@@ -55,10 +55,15 @@
     <!-- Task Input Section End -->
 
     <!-- progress bar start -->
-    <div class="w-2xl px-4">
-      <p class="mb-2">Progress <span id="progressText"> 0% </span></p>
+    <div class="w-3xl px-4 m-3">
+      <div
+        class="flex justify-between items-center mb-2 text-[#515970] text-sm"
+      >
+        <p class="">progress</p>
+        <span id="progressText"> 0% </span>
+      </div>
 
-      <div class="h-1 w-full rounded-full bg-gray-700">
+      <div class="h-1 w-full rounded-full bg-[#202326]">
         <div
           id="progressBar"
           class="h-1 rounded-full bg-cyan-200"
@@ -69,41 +74,29 @@
     <!-- progress bar end -->
 
     <!-- Task Filters Start -->
-    <div class="m-4 relative right-48">
-      <button class="rounded-xl w-[50px] cursor-pointer bg-blue-500 text-white">
+    <div class="m-4 relative right-60 text-xs">
+      <button
+        class="rounded-2xl px-4 py-1 cursor-pointer bg-[#5B7CFA] text-white"
+      >
         all
       </button>
-      <button class="border rounded-xl w-[100px] cursor-pointer">
+      <button
+        class="border border-[#242832] py-1 rounded-2xl w-[100px] cursor-pointer text-[#515970]"
+      >
         pending
       </button>
-      <button class="border rounded-xl w-[100px] cursor-pointer">
+      <button
+        class="border border-[#242832] py-1 rounded-2xl w-[100px] cursor-pointer text-[#515970]"
+      >
         completed
       </button>
     </div>
     <!-- Task Filters End -->
 
-    <h3 class="m-4 relative right-75 text-gray-700 text-sm">TASKS</h3>
+    <h3 class="m-4 relative right-75 text-[#515970] text-xs">TASKS</h3>
 
     <!-- Task List Start-->
     <ul id="tasklist" class="flex flex-col gap-2">
-      <!-- <li
-        class="flex items-center gap-6 border w-2xl p-4 rounded-xl bg-gray-900 relative"
-      >
-        <input
-          type="checkbox"
-          class="existingCheckbox cursor-pointer appearance-none border-2 hover:border-green-500 w-5 h-5 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
-        />
-        <span>Learn querySelector and getElementById</span>
-        <span class="ml-auto text-red-400 text-xs rounded-md border px-3 py-1"
-          >high</span
-        >
-        <button
-          class="existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center"
-        >
-          x
-        </button>
-      </li> -->
-
       <li
         class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-5 rounded-xl bg-[ #515970] relative"
       >
@@ -112,7 +105,7 @@
           class="existingCheckbox cursor-pointer appearance-none border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Learn querySelector and getElementById</span>
-        <span class="ml-auto text-red-400 text-xs rounded-md border px-3 py-1"
+        <span class="ml-auto text-[#F05B5B] text-xs rounded-md border border-[#F05B5B] px-3 py-1"
           >high</span
         >
         <button
@@ -129,7 +122,7 @@
           class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Understand addEventListener and event objects</span>
-        <span class="ml-auto text-red-400 text-xs rounded-md border px-3 py-1"
+        <span class="ml-auto text-[#F05B5B] text-xs rounded-md border border-[#F05B5B] px-3 py-1"
           >high</span
         >
         <button
@@ -148,7 +141,7 @@
         />
         <span>Practice createElement and appendChild</span>
         <span
-          class="ml-auto text-yellow-400 text-xs rounded-md border px-3 py-1"
+          class="ml-auto text-[#F0A52B] text-xs rounded-md border border[#F0A52B] px-3 py-1"
           >medium</span
         >
         <button
@@ -167,7 +160,7 @@
         />
         <span>Style elements with classList.add / toggle</span>
         <span
-          class="ml-auto text-yellow-400 text-xs rounded-md border px-3 py-1"
+          class="ml-auto text-[#F0A52B] text-xs rounded-md border border[#F0A52B] px-3 py-1"
           >medium</span
         >
         <button
@@ -185,7 +178,7 @@
           class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Read MDN Web Docs every day</span>
-        <span class="ml-auto text-green-400 text-xs rounded-md border px-3 py-1"
+        <span class="ml-auto text-[#27C282] text-xs rounded-md border border-[#27C282] px-3 py-1"
           >low</span
         >
         <button
