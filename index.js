@@ -5,7 +5,11 @@ const tasks = [];
 
 function addTask() {
   if (inputBox.value.trim() === "") {
-    alert("Please enter a task.");
+    inputBox.classList.remove("shake")
+
+    setTimeout(() => {
+      inputBox.classList.add("shake")
+    }, 400)
     return;
   }
 

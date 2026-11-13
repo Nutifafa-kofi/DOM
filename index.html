@@ -29,7 +29,7 @@
         id="inputBox"
         type="text"
         placeholder="add a new task and press Enter..."
-        class="rounded-2xl w-3xl p-6 m-4 border border-[#242832] bg-[#13161E] text-[#515970] text-lg"
+        class="rounded-2xl w-3xl p-5 m-4 border focus:border-[#5B7CFA] outline-none border-[#242832] bg-[#13161E] text-[#515970] text-md"
       />
 
       <!-- Task Rank and Add Button Start -->
@@ -38,7 +38,7 @@
         <select
           name=""
           id="rank"
-          class="border-[0.5px] border-gray-100 rounded-lg p-2 cursor-pointer bg-gray-900 text-slate-100 text-sm"
+          class="border border-[#2A2E39] bg-[#13161E] text-[#515970] text-xs rounded-lg p-2 cursor-pointer focus:border-[#5B7CFA] outline-none"
         >
           <option value="high">high</option>
           <option value="medium">medium</option>
@@ -66,7 +66,7 @@
       <div class="h-1 w-full rounded-full bg-[#202326]">
         <div
           id="progressBar"
-          class="h-1 rounded-full bg-cyan-200"
+          class="h-1 rounded-full bg-[#3ED48E]"
           style="width: 20%"
         ></div>
       </div>
@@ -81,12 +81,12 @@
         all
       </button>
       <button
-        class="border border-[#242832] py-1 rounded-2xl w-[100px] cursor-pointer text-[#515970]"
+        class="border border-[#242832] py-1 rounded-2xl w-[100px] cursor-pointer text-[#515970] hover:transition-all duration-400 ease-in-out hover:text-white"
       >
         pending
       </button>
       <button
-        class="border border-[#242832] py-1 rounded-2xl w-[100px] cursor-pointer text-[#515970]"
+        class="border border-[#242832] py-1 rounded-2xl w-[100px] cursor-pointer text-[#515970] hover:transition-all duration-400 ease-out-in hover:text-white"
       >
         completed
       </button>
@@ -98,11 +98,11 @@
     <!-- Task List Start-->
     <ul id="tasklist" class="flex flex-col gap-2">
       <li
-        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-5 rounded-xl bg-[ #515970] relative"
+        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-4 rounded-xl bg-[ #515970] relative"
       >
         <input
           type="checkbox"
-          class="existingCheckbox cursor-pointer appearance-none border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
+          class="existingCheckbox cursor-pointer appearance-none border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-[#27D49A] checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Learn querySelector and getElementById</span>
         <span class="ml-auto text-[#F05B5B] text-xs rounded-md border border-[#F05B5B] px-3 py-1"
@@ -115,11 +115,11 @@
         </button>
       </li>
       <li
-        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-5 rounded-xl relative"
+        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-4 rounded-xl relative"
       >
         <input
           type="checkbox"
-          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
+          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-[#27D49A] checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Understand addEventListener and event objects</span>
         <span class="ml-auto text-[#F05B5B] text-xs rounded-md border border-[#F05B5B] px-3 py-1"
@@ -133,11 +133,11 @@
       </li>
 
       <li
-        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-5 rounded-xl relative"
+        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-4 rounded-xl relative"
       >
         <input
           type="checkbox"
-          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
+          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-[#27D49A] checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Practice createElement and appendChild</span>
         <span
@@ -152,11 +152,11 @@
       </li>
 
       <li
-        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-5 rounded-xl relative"
+        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-4 rounded-xl relative"
       >
         <input
           type="checkbox"
-          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
+          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-[#27D49A] checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Style elements with classList.add / toggle</span>
         <span
@@ -171,11 +171,11 @@
       </li>
 
       <li
-        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-5 rounded-xl relative"
+        class="flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-4 rounded-xl relative"
       >
         <input
           type="checkbox"
-          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-green-500 checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
+          class="existingCheckbox cursor-pointer appearance-none border-2 border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full checked:bg-[#27D49A] checked:border-green-500 checked:after:content-['✓'] checked:after:flex checked:after:items-center checked:after:justify-center"
         />
         <span>Read MDN Web Docs every day</span>
         <span class="ml-auto text-[#27C282] text-xs rounded-md border border-[#27C282] px-3 py-1"
