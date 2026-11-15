@@ -33,7 +33,7 @@ function addTask() {
   taskText.value = "";
 }
 
-taskList.addEventListener("change", (e) => {
+taskList.addEventListener("click", (e) => {
   if (e.target.classList.contains("existingBtn")) {
     const deleteItems = e.target.parentElement;
     deleteItems.remove();
@@ -42,22 +42,23 @@ taskList.addEventListener("change", (e) => {
   if (e.target.classList.contains("existingCheckbox")) {
     const lineThrough = e.target.nextElementSibling;
     lineThrough.classList.toggle("line-through");
-    updateProgress();
   }
+  updateProgress();
 });
 
 function updateProgress() {
   const totalTask = taskList.querySelectorAll("li").length;
   const completedTasks = taskList.querySelectorAll(
-    "input:[type = 'checkbox']:checked",
+    "input[type = 'checkbox']:checked"
   ).length;
+
   let progress;
 
-  if (progressBar === 0) {
+  if (totalTask === 0) {
     progress = 0;
   } else {
-    (completedTasks / totalTask) * 100;
+   progress = (completedTasks / totalTask) * 100;
   }
-
-  progress.style.width = `${progress}%`;
+  progressBar.style.width = `${progress}%`;
+  progressText.textContent = `${Math.round(progress)}% Completed`;
 }
