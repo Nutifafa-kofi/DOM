@@ -4,7 +4,23 @@ const progressBar = document.getElementById("progressBar");
 const progressText = document.getElementById("progressText");
 const rank = document.getElementById("rank");
 
-// const tasks = [taskList];
+const totalTasks = document.getElementById("totalTasks");
+const tasksCompleted = document.getElementById("tasksCompleted");
+const tasksLeft = document.getElementById("tasksLeft");
+
+// Function to check tasks summary
+
+function updateSummary() {
+  const total = document.querySelectorAll("li").length;
+  const completed = document.querySelectorAll(
+    "input[type='checkBox']:checked",
+  ).length;
+
+  const remaining = total - completed
+  totalTasks.textContent = total
+  tasksCompleted.textContent = completed
+  tasksLeft.textContent = remaining
+}
 
 // Function to add newly created tasks
 function addTask() {
@@ -46,6 +62,7 @@ function addTask() {
 
   // listItem;
   taskList.prepend(listItem);
+  updateSummary()
   taskText.value = "";
 }
 
@@ -61,6 +78,7 @@ taskList.addEventListener("click", (e) => {
     lineThrough.classList.toggle("line-through");
   }
   updateProgress();
+  updateSummary()
 });
 
 // Function to track progress for each item completed or deleted
