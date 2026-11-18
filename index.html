@@ -26,21 +26,26 @@
     <!-- Task Summary buttons Start -->
     <div>
       <button class="flex gap-3 w-3xl justify-end items-center mb-10">
-        <span
-          id="totalTasks"
-          class="w-[65px] h-6 border border-[#5B7CFA] text-[#5B7CFA] text-xs rounded-full flex justify-center items-center"
-          >0 total</span
+        <div
+          class="w-[65px] h-6 border border-[#5B7CFA] text-[#5B7CFA] text-xs rounded-full flex justify-center gap-2 items-center"
         >
-        <span
-          id="tasksCompleted"
-          class="w-[65px] h-6 border border-green-500 text-green-500 text-xs rounded-full flex justify-center items-center"
-          >0 done</span
+          <span id="totalTasks">0 </span>
+          <p>total</p>
+        </div>
+
+        <div
+          class="w-[65px] h-6 border border-green-500 text-green-500 text-xs rounded-full flex gap-2 justify-center items-center"
         >
-        <span
-          id="tasksLeft"
-          class="w-[65px] h-6 border border-[#F05B5B] text-[#F0A52B] text-xs rounded-full flex justify-center items-center"
-          >0 left</span
+          <span id="tasksCompleted">0 </span>
+          <p>done</p>
+        </div>
+
+        <div
+          class="w-[65px] h-6 border border-[#F05B5B] text-[#F0A52B] text-xs rounded-full flex gap-2 justify-center items-center"
         >
+          <span id="tasksLeft">0</span>
+          <p>left</p>
+        </div>
       </button>
     </div>
     <!-- Task Summary buttons End -->
