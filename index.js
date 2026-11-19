@@ -1,109 +1,100 @@
-// Declare variables for task input, add button, and task list
-const taskInput = document.getElementById("taskInput");
-const addBtn = document.getElementById("addBtn");
-const tasklist = document.getElementById("tasklist");
-const rankSelect = document.getElementById("rank");
-const filterButtons = document.querySelectorAll("[data-filter]");
+const taskText = document.getElementById("taskText");
+const taskList = document.getElementById("tasklist");
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
+const rank = document.getElementById("rank");
 
-// Add a task when the button is clicked or Enter is pressed
+const totalTasks = document.getElementById("totalTasks");
+const tasksCompleted = document.getElementById("tasksCompleted");
+const tasksLeft = document.getElementById("tasksLeft");
+
+// Function to check tasks summary
+
+function updateSummary() {
+  const total = document.querySelectorAll("li").length;
+  const completed = document.querySelectorAll(
+    "input[type='checkBox']:checked",
+  ).length;
+
+  const remaining = total - completed
+  totalTasks.textContent = total
+  tasksCompleted.textContent = completed
+  tasksLeft.textContent = remaining
+}
+
+// Function to add newly created tasks
 function addTask() {
-  const task = taskInput.value.trim();
-  const priority = rankSelect.value;
-  // Check if the task input is empty and shake the input field if it is
-  if (task === "") {
-    taskInput.classList.add("shake");
+  if (taskText.value.trim() === "") {
+    taskText.classList.remove("shake");
+
     setTimeout(() => {
-      taskInput.classList.remove("shake");
-    }, 300);
+      taskText.classList.add("shake");
+    }, 100);
     return;
   }
 
-  // Add the list item to the task list with a checkbox and delete button
-  const listItem = document.createElement("li");
-  listItem.className =
-    "flex items-center gap-2 border w-2xl p-4 rounded-lg bg-gray-900";
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.className = "cursor-pointer w-3 h-3 rounded-full";
-
-  // Create the task text
-  const taskText = document.createElement("span");
-  const priorityLabel = document.createElement("span");
-  priorityLabel.textContent = priority;
-  priorityLabel.className = "ml-auto  text-xs rounded-md border px-4 py-1";
-
+  const priority = rank.value;
+  let priorityStyle = "";
   if (priority === "high") {
-    priorityLabel.classList.add("text-red-400");
+    priorityStyle =
+      "ml-auto text-[#F05B5B] text-xs rounded-md border border-[#F05B5B] px-3 py-1";
   } else if (priority === "medium") {
-    priorityLabel.classList.add("text-yellow-400");
+    priorityStyle =
+      "ml-auto text-[#F0A52B] text-xs rounded-md border border[#F0A52B] px-3 py-1";
   } else {
-    priorityLabel.classList.add("text-green-400");
+    priorityStyle =
+      "ml-auto text-[#27C282] text-xs rounded-md border border-[#27C282] px-3 py-1";
   }
 
-  // Mark the task as completed when the checkbox is checked
-  checkbox.addEventListener("change", function () {
-    taskText.classList.toggle("line-through");
-  });
-  taskText.textContent = task;
-  listItem.appendChild(checkbox);
-  listItem.appendChild(taskText);
-  tasklist.appendChild(listItem);
+  // Creating new List Items
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `
+  <input type ="checkbox" class =" existingCheckbox
+  cursor-pointer appearance-none border-2 border-[#2A2E39] hover:border-green-500 w-6 h-6 rounded-full 
+  checked:bg-[#27D49A] checked:border-green-500 checked:after:content-['✓'] 
+  checked:after:flex checked:after:items-center checked:after:justify-center"> 
+  <span>${taskText.value}</span>
+  <span class = "${priorityStyle}">${priority}</span>
+  <button class = " existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center ml-auto">x</button> `;
 
-  // Event listener for the task list to handle delete button clicks
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "x";
-  deleteBtn.className =
-    " text-gray-500  rounded-md  text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center";
+  listItem.className =
+    "flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-4 rounded-xl relative";
 
-  deleteBtn.addEventListener("click", function () {
-    listItem.remove();
-  });
-  listItem.appendChild(priorityLabel);
-
-  listItem.appendChild(deleteBtn);
-
-  taskInput.value = "";
-  taskInput.focus();
+  // listItem;
+  taskList.prepend(listItem);
+  updateSummary()
+  taskText.value = "";
 }
 
-addBtn.addEventListener("click", addTask);
-
-taskInput.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    addTask();
+// Function to handle delete button clicks and checked events
+taskList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("existingBtn")) {
+    const deleteItems = e.target.parentElement;
+    deleteItems.remove();
   }
+
+  if (e.target.classList.contains("existingCheckbox")) {
+    const lineThrough = e.target.nextElementSibling;
+    lineThrough.classList.toggle("line-through");
+  }
+  updateProgress();
+  updateSummary()
 });
 
-const existingList = document.querySelectorAll("#tasklist li");
-const existingBtn = document.querySelectorAll(".existingBtn");
+// Function to track progress for each item completed or deleted
+function updateProgress() {
+  const totalTask = taskList.querySelectorAll("li").length;
+  const completedTasks = taskList.querySelectorAll(
+    "input[type = 'checkbox']:checked",
+  ).length;
 
-existingBtn.forEach((element) => {
-  element.addEventListener("click", function () {
-    element.parentElement.remove();
-  });
-});
+  let progress;
 
-const checkboxes = document.querySelectorAll(".existingCheckbox");
-
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", function () {
-    const taskText = checkbox.nextElementSibling;
-    taskText.classList.toggle("line-through");
-  });
-});
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const filter = button.dataset.filter;
-    const tasks = tasklist.querySelectorAll("li");
-
-    tasks.forEach((taskItem) => {
-      const checkbox = taskItem.querySelector('input[type="checkbox"]');
-      const isCompleted = checkbox.checked;
-
-      taskItem.hidden =
-        (filter === "pending" && isCompleted) ||
-        (filter === "completed" && !isCompleted);
-    });
-  });
-});
+  if (totalTask === 0) {
+    progress = 0;
+  } else {
+    progress = (completedTasks / totalTask) * 100;
+  }
+  progressBar.style.width = `${progress}%`;
+  progressText.textContent = `${Math.round(progress)}% Completed`;
+}
