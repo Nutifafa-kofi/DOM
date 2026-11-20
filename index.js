@@ -8,6 +8,8 @@ const totalTasks = document.getElementById("totalTasks");
 const tasksCompleted = document.getElementById("tasksCompleted");
 const tasksLeft = document.getElementById("tasksLeft");
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+
 // Function to check tasks summary
 
 function updateSummary() {
@@ -16,11 +18,40 @@ function updateSummary() {
     "input[type='checkBox']:checked",
   ).length;
 
-  const remaining = total - completed
-  totalTasks.textContent = total
-  tasksCompleted.textContent = completed
-  tasksLeft.textContent = remaining
+  const remaining = total - completed;
+  totalTasks.textContent = total;
+  tasksCompleted.textContent = completed;
+  tasksLeft.textContent = remaining;
 }
+
+// Function to sort list items under the filter buttons
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    const tasks = document.querySelectorAll("li");
+
+    tasks.forEach((task) => {
+      const checkbox = task.querySelector("input[type= 'checkbox']");
+
+      if (filter === "all") {
+        task.style.display = "flex";
+      } else if (filter === "pending") {
+        if (checkbox.checked) {
+          task.style.display = "none";
+        } else {
+          task.style.display = "flex";
+        }
+      } else if (filter === "completed") {
+        if (checkbox.checked) {
+          task.style.display = "flex";
+        } else {
+          task.style.display = "none";
+        }
+      }
+    });
+  });
+});
 
 // Function to add newly created tasks
 function addTask() {
@@ -62,24 +93,9 @@ function addTask() {
 
   // listItem;
   taskList.prepend(listItem);
-  updateSummary()
+  updateSummary();
   taskText.value = "";
 }
-
-// Function to handle delete button clicks and checked events
-taskList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("existingBtn")) {
-    const deleteItems = e.target.parentElement;
-    deleteItems.remove();
-  }
-
-  if (e.target.classList.contains("existingCheckbox")) {
-    const lineThrough = e.target.nextElementSibling;
-    lineThrough.classList.toggle("line-through");
-  }
-  updateProgress();
-  updateSummary()
-});
 
 // Function to track progress for each item completed or deleted
 function updateProgress() {
@@ -96,5 +112,28 @@ function updateProgress() {
     progress = (completedTasks / totalTask) * 100;
   }
   progressBar.style.width = `${progress}%`;
-  progressText.textContent = `${Math.round(progress)}% Completed`;
+  progressText.textContent = `${Math.round(progress)}% `;
 }
+
+const filterBtns = document.querySelectorAll("filter-btn");
+
+filterBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+  });
+});
+
+// Function to handle delete button clicks and checked events
+taskList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("existingBtn")) {
+    const deleteItems = e.target.parentElement;
+    deleteItems.remove();
+  }
+
+  if (e.target.classList.contains("existingCheckbox")) {
+    const lineThrough = e.target.nextElementSibling;
+    lineThrough.classList.toggle("line-through");
+  }
+  updateProgress();
+  updateSummary();
+});
