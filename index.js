@@ -50,6 +50,16 @@ filterButtons.forEach((button) => {
         }
       }
     });
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        btn.classList.add("active");
+      });
+    });
   });
 });
 
@@ -86,7 +96,7 @@ function addTask() {
   checked:after:flex checked:after:items-center checked:after:justify-center"> 
   <span>${taskText.value}</span>
   <span class = "${priorityStyle}">${priority}</span>
-  <button class = " existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center ml-auto">x</button> `;
+  <button class = " existingBtn text-gray-500 rounded-md text-xl hover:bg-transparent hover:text-red-300 hover:border border-red-300 w-6 h-6 flex items-center justify-center ">x</button> `;
 
   listItem.className =
     "flex items-center gap-2 bg-[#1A1E2A] border border-[#2A2E39] w-3xl p-4 rounded-xl relative";

@@ -19,3 +19,9 @@
 .shake {
   animation: shake 0.3s;
 }
+
+
+.filter-btn.active {
+  background-color: #5B7CFA;
+  color: #fff;
+}
